@@ -3,6 +3,6 @@
 
 int _putchar(char c);
 /* ... tes autres prototypes ... */
-int add(int, int);
+void print_to_98(int n);
 
 #endif

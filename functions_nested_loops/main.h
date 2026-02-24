@@ -3,6 +3,6 @@
 
 int _putchar(char c);
 /* ... tes autres prototypes ... */
-int print_last_digit(int);
+void jack_bauer(void);
 
 #endif

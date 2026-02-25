@@ -2,7 +2,7 @@
 
 /**
  * print_table - Prints a multiplication table of a given size
- * @size: The size of the table (size x size)
+ * @size: The size of the table
  *
  * Return: void
  */
@@ -14,15 +14,13 @@ void print_table(int size)
 	{
 		for (col = 1; col <= size; col++)
 		{
-			printf("%d", row * col);
-			if (col < size)
-				printf(" ");
+			/* On affiche le nombre suivi d'un espace, sans condition */
+			printf("%d ", row * col);
 		}
 		printf("\n");
 	}
 }
 
-/* -- DO NOT Modify the code below this line -- */
 /**
  * main - Entry point
  *

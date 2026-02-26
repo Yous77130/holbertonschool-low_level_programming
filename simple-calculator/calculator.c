@@ -1,14 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - Point d'entrée de la calculatrice
- * Return: Toujours 0
+ * main - Entry point for the calculator
+ * Return: Always 0
  */
 int main(void)
 {
 	int choice = -1;
-	int a, b, result;
-
+	double a, b;
 	printf("Simple Calculator\n");
 
 	while (choice != 0)
@@ -23,26 +22,26 @@ int main(void)
 		{
 			printf("Bye!\n");
 		}
-		else if (choice >= 1 && choice <= 3)
+		else if (choice >= 1 && choice <= 4)
 		{
-			/* On demande A et B pour Add, Subtract et Multiply */
 			printf("A: ");
-			scanf("%d", &a);
+			scanf("%lf", &a);
 			printf("B: ");
-			scanf("%d", &b);
+			scanf("%lf", &b);
 
 			if (choice == 1)
-				result = a + b;
+				printf("Result: %g\n", a + b);
 			else if (choice == 2)
-				result = a - b;
-			else
-				result = a * b;
-
-			printf("Result: %d\n", result);
-		}
-		else if (choice == 4)
-		{
-			printf("Operation to be implemented\n");
+				printf("Result: %g\n", a - b);
+			else if (choice == 3)
+				printf("Result: %g\n", a * b);
+			else if (choice == 4)
+			{
+				if (b == 0)
+					printf("Error: division by zero\n");
+				else
+					printf("Result: %g\n", a / b);
+			}
 		}
 		else
 		{
@@ -51,3 +50,4 @@ int main(void)
 	}
 	return (0);
 }
+

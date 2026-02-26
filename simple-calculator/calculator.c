@@ -23,20 +23,23 @@ int main(void)
 		{
 			printf("Bye!\n");
 		}
-		else if (choice == 1)
+		else if (choice == 1 || choice == 2)
 		{
-			/* Task 2: Addition */
+			/* On demande A et B pour l'addition ET la soustraction */
 			printf("A: ");
 			scanf("%d", &a);
 			printf("B: ");
 			scanf("%d", &b);
 
-			result = a + b;
+			if (choice == 1)
+				result = a + b;
+			else
+				result = a - b;
+
 			printf("Result: %d\n", result);
 		}
-		else if (choice >= 2 && choice <= 4)
+		else if (choice >= 3 && choice <= 4)
 		{
-			/* À implémenter dans les prochaines tâches */
 			printf("Operation to be implemented\n");
 		}
 		else

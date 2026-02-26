@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - Entry point for the calculator
- * Return: Always 0
+ * main - Point d'entrée de la calculatrice
+ * Return: Toujours 0
  */
 int main(void)
 {
@@ -23,9 +23,9 @@ int main(void)
 		{
 			printf("Bye!\n");
 		}
-		else if (choice == 1 || choice == 2)
+		else if (choice >= 1 && choice <= 3)
 		{
-			/* On demande A et B pour l'addition ET la soustraction */
+			/* On demande A et B pour Add, Subtract et Multiply */
 			printf("A: ");
 			scanf("%d", &a);
 			printf("B: ");
@@ -33,12 +33,14 @@ int main(void)
 
 			if (choice == 1)
 				result = a + b;
-			else
+			else if (choice == 2)
 				result = a - b;
+			else
+				result = a * b;
 
 			printf("Result: %d\n", result);
 		}
-		else if (choice >= 3 && choice <= 4)
+		else if (choice == 4)
 		{
 			printf("Operation to be implemented\n");
 		}

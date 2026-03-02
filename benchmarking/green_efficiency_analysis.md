@@ -45,3 +45,4 @@ There are several limitations to this study. First, `clock()` measures CPU time,
 
 ## Practical Engineering Takeaway
 The primary takeaway is that "Green Coding" is fundamentally about algorithmic efficiency. As engineers, writing code that completes a task in $O(n)$ instead of $O(n^2)$ is the most impactful way to reduce the environmental footprint of software. Instrumentation is the essential first step in this process: we cannot optimize what we cannot measure. By identifying "hotspots" through timing, we can apply surgical optimizations that yield the highest return on investment for both performance and sustainability.
+ 

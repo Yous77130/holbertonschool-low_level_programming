@@ -1,9 +1,12 @@
-# Comparison Algorithms Metrics
+# Algorithmic Efficiency Comparison
 
-## Slow Calculation (Iterative)
-Iterations: 1000000000
+## Slow Implementation (Iterative)
 Execution time: 0.284532 seconds
 
-## Fast Calculation (Formula)
-Result: 499999999500000000
-Execution time: 0.000001 seconds
+## Fast Implementation (Mathematical)
+Execution time: 0.000002 seconds
+
+## Analysis
+The mathematical approach is significantly more efficient than the iterative loop.
+In terms of Green Tech, the fast implementation reduces CPU activity to the minimum,
+resulting in much lower energy consumption.

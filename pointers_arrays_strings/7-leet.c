@@ -4,7 +4,7 @@ char *leet(char *s)
     int i;
     int j;
     char plain[] = "aAeEoOtTlL";
-    char leetc[] = "44330077 11";
+    char leetc[] = "4433007711";
 
     i = 0;
     while (s[i] != '\0')

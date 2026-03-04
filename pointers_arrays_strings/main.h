@@ -8,4 +8,5 @@ void swap_int(int *a, int *b);
 char *_memset(char *s, char b, unsigned int n);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
 #endif

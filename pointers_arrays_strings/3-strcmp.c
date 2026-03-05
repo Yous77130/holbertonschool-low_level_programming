@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * _strcmp - function that copies a string
+ * @s1:[98],
+ * Return: string copie.
+ */
 int _strcmp(char *s1, char *s2)
 {
     int i;

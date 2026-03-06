@@ -1,18 +1,14 @@
 #include <stdio.h>
-#include <string.h>
 
+/**
+ * main - prints the name of the program
+ * @argc: number of command line arguments
+ * @argv: array of command line arguments
+ * Return: Always 0 (Success)
+ */
 int main(int argc, char *argv[])
 {
-    (void)argc;  // évite le warning de variable non utilisée
-
-    // Obtenir seulement le nom du fichier, pas le chemin
-    char *name = strrchr(argv[0], '/');
-    if (name)
-        name++;  // passer le '/'
-    else
-        name = argv[0];
-
-    printf("%s\n", name);
-    return 0;
+	(void)argc;
+	printf("%s\n", argv[0]);
+	return (0);
 }
-

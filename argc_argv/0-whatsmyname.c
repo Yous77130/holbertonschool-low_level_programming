@@ -1,3 +1,4 @@
+cat > 0-whatsmyname.c << 'EOF'
 #include <stdio.h>
 
 /**
@@ -6,9 +7,10 @@
  * @argv: array of command line arguments
  * Return: Always 0 (Success)
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	(void)argc;
-	printf("%s\n", argv[0]);
+	printf("%s\n", argv[argc - argc]);
 	return (0);
 }
+EOF
+

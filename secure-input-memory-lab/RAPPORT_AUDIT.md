@@ -1,20 +1,13 @@
-## 2. Environnement de test
-- **Compilation :** `gcc -g -o vulnerable_app main.c session.c user_input.c`
-- **Outil :** Valgrind 3.22.0
-- **Entrée normale :** "test"
-- **Entrée limite :** "12345678901234567890"
+# Audit de Sécurité - Task 1: Analyse Mémoire
 
-## 3. Analyse des résultats (Données Valgrind)
+## Évidence de l'erreur (Valgrind)
+Lors de l'exécution avec une entrée longue (Boundary Input), Valgrind détecte l'erreur suivante :
+- **Type :** Invalid Write / Heap Buffer Overflow
+- **Localisation :** user_input.c:13 (fonction read_username)
+- **Résumé :** 42 erreurs provenant de 5 contextes.
 
-### Faille #1 : Heap Buffer Overflow
-- **Localisation :** `user_input.c`, fonction `read_username`
-- **Preuve (Stack Trace) :** [Insère ici les 4-5 lignes du stack trace que Valgrind t'a données tout à l'heure]
-- **Diagnostic :** Le programme alloue un espace fixe via `malloc`. L'utilisation d'une fonction de lecture non bornée entraîne un écrasement de la mémoire adjacente sur le tas.
-- **Conformité CERT :** MEM35-C (Violation).
+## Classification CERT
+Cette faille correspond à la règle **MEM35-C** : "Allocate sufficient memory for an object". Le programme alloue un buffer trop petit pour la saisie utilisateur sans vérifier la taille de l'entrée.
 
-## 4. Comparaison
-- **Baseline (Entrée courte) :** Le programme s'exécute sans erreur critique.
-- **Limite (Entrée longue) :** 42 erreurs signalées. Cela prouve une dépendance directe entre la longueur de l'entrée et l'intégrité mémoire.
-
-## 5. Conclusion
-Le programme souffre d'un défaut de conception critique dans la gestion des entrées utilisateur. La correction nécessite une validation stricte de la longueur de chaîne avant tout `memcpy` ou `strcpy`.
+## Observation
+Le bug est dépendant de l'entrée (input-dependent). Une entrée courte ne déclenche pas d'erreur immédiate, mais une entrée longue corrompt le tas (heap).

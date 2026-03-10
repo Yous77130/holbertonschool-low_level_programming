@@ -1,13 +1,13 @@
-# Audit de Sécurité - Task 1: Analyse Mémoire
+# Rapport Audit - Task 1
 
-## Évidence de l'erreur (Valgrind)
-Lors de l'exécution avec une entrée longue (Boundary Input), Valgrind détecte l'erreur suivante :
-- **Type :** Invalid Write / Heap Buffer Overflow
-- **Localisation :** user_input.c:13 (fonction read_username)
-- **Résumé :** 42 erreurs provenant de 5 contextes.
+## Détection Valgrind
+- **Erreur :** Invalid write (Heap Buffer Overflow)
+- **Fichier :** user_input.c:13 (read_username)
+- **Stats :** 42 erreurs détectées avec une entrée longue.
 
-## Classification CERT
-Cette faille correspond à la règle **MEM35-C** : "Allocate sufficient memory for an object". Le programme alloue un buffer trop petit pour la saisie utilisateur sans vérifier la taille de l'entrée.
+## Règles CERT Violées
+- **MEM35-C :** Allocation de mémoire insuffisante.
+- **EXP33-C :** Lecture de mémoire non initialisée suite à la corruption.
 
-## Observation
-Le bug est dépendant de l'entrée (input-dependent). Une entrée courte ne déclenche pas d'erreur immédiate, mais une entrée longue corrompt le tas (heap).
+## Analyse
+L'erreur est "input-dependent". Le programme échoue uniquement quand l'entrée utilisateur dépasse la taille du buffer alloué dynamiquement, corrompant les structures adjacentes du tas (heap).

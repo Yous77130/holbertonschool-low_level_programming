@@ -1,6 +1,9 @@
-# Task 1 — Analyse mémoire avec Valgrind
+# Audit de Sécurité
 
-## 1. Action réalisée
-- Lancement du programme avec Valgrind :
-```bash
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./lab
+## Task 0 : Setup
+Environnement Valgrind opérationnel. Compilation avec flags de debug réussie.
+
+## Task 1 : Analyse Mémoire
+- **Erreur :** Invalid write (Heap Buffer Overflow)
+- **Fichier :** user_input.c:13
+- **Classification :** MEM35-C

@@ -3,17 +3,32 @@
 #include <string.h>
 #include "user_input.h"
 
+/**
+ * read_username - Lit un nom d'utilisateur depuis stdin
+ * Return: Pointeur vers la chaîne allouée, ou NULL en cas d'erreur
+ */
 char *read_username(void)
 {
-    char buffer[32];
-    char *username = NULL;
+	char buffer[32];
+	char *username;
+	size_t len;
 
-    scanf("%s", buffer);
+	if (fgets(buffer, sizeof(buffer), stdin) == NULL)
+		return (NULL);
 
-    username = malloc(strlen(buffer) + 1);
-    if (username == NULL)
-        return NULL;
+	len = strlen(buffer);
+	if (len > 0 && buffer[len - 1] == '\n')
+	{
+		buffer[len - 1] = '\0';
+		len--;
+	}
 
-    strcpy(username, buffer);
-    return username;
+	username = malloc(sizeof(char) * (len + 1));
+	if (username == NULL)
+		return (NULL);
+
+	strncpy(username, buffer, len + 1);
+	username[len] = '\0';
+
+	return (username);
 }

@@ -1,0 +1,17 @@
+# Rapport d'Audit de Sécurité - Task 4
+
+## 1. Analyse des vulnérabilités
+- **Buffer Overflow (Stack Overflow) :** Correction de la lecture non bornée par l'utilisation de `fgets`.
+- **Use-After-Free / Double Free :** Correction par la réorganisation de la libération mémoire dans `main.c`, assurant une séquence linéaire et unique : allocation -> utilisation -> destruction -> libération.
+- **Conformité CERT-C :** Respect des règles MEM35-C, STR31-C, FIO37-C.
+
+## 2. Correctifs
+- **Module `user_input.c` :** Lecture sécurisée avec gestion explicite de la taille et terminaison nulle.
+- **Module `main.c` :** Séquençage correct de `session_destroy()` suivi de `free(username)` pour éviter les accès mémoire après libération.
+
+## 3. Preuve de correction (Valgrind)
+Le programme ne présente plus d'erreurs mémoire lors de l'exécution :
+
+```text
+== All heap blocks were freed -- no leaks are possible ==
+== ERROR SUMMARY: 0 errors from 0 contexts ==

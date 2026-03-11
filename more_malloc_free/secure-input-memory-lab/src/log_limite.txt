@@ -1,0 +1,93 @@
+==395283== Memcheck, a memory error detector
+==395283== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==395283== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==395283== Command: ./vulnerable_app
+==395283== 
+==395283== Invalid read of size 1
+==395283==    at 0x484F226: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x48CCDA7: __printf_buffer (vfprintf-process-arg.c:435)
+==395283==    by 0x48CD73A: __vfprintf_internal (vfprintf-internal.c:1544)
+==395283==    by 0x48C21B2: printf (printf.c:33)
+==395283==    by 0x1092EA: main (main.c:31)
+==395283==  Address 0x4a790c0 is 0 bytes inside a block of size 21 free'd
+==395283==    at 0x484988F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x1093CA: session_destroy (session.c:33)
+==395283==    by 0x1092CF: main (main.c:29)
+==395283==  Block was alloc'd at
+==395283==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x109431: read_username (user_input.c:13)
+==395283==    by 0x10925D: main (main.c:12)
+==395283== 
+==395283== Invalid read of size 1
+==395283==    at 0x484F234: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x48CCDA7: __printf_buffer (vfprintf-process-arg.c:435)
+==395283==    by 0x48CD73A: __vfprintf_internal (vfprintf-internal.c:1544)
+==395283==    by 0x48C21B2: printf (printf.c:33)
+==395283==    by 0x1092EA: main (main.c:31)
+==395283==  Address 0x4a790c1 is 1 bytes inside a block of size 21 free'd
+==395283==    at 0x484988F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x1093CA: session_destroy (session.c:33)
+==395283==    by 0x1092CF: main (main.c:29)
+==395283==  Block was alloc'd at
+==395283==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x109431: read_username (user_input.c:13)
+==395283==    by 0x10925D: main (main.c:12)
+==395283== 
+==395283== Invalid read of size 1
+==395283==    at 0x4852EE0: memmove (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x48C2D87: memcpy (string_fortified.h:29)
+==395283==    by 0x48C2D87: __printf_buffer_write (Xprintf_buffer_write.c:39)
+==395283==    by 0x48CB51B: __printf_buffer (vfprintf-process-arg.c:501)
+==395283==    by 0x48CD73A: __vfprintf_internal (vfprintf-internal.c:1544)
+==395283==    by 0x48C21B2: printf (printf.c:33)
+==395283==    by 0x1092EA: main (main.c:31)
+==395283==  Address 0x4a790c0 is 0 bytes inside a block of size 21 free'd
+==395283==    at 0x484988F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x1093CA: session_destroy (session.c:33)
+==395283==    by 0x1092CF: main (main.c:29)
+==395283==  Block was alloc'd at
+==395283==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x109431: read_username (user_input.c:13)
+==395283==    by 0x10925D: main (main.c:12)
+==395283== 
+==395283== Invalid read of size 1
+==395283==    at 0x4852EED: memmove (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x48C2D87: memcpy (string_fortified.h:29)
+==395283==    by 0x48C2D87: __printf_buffer_write (Xprintf_buffer_write.c:39)
+==395283==    by 0x48CB51B: __printf_buffer (vfprintf-process-arg.c:501)
+==395283==    by 0x48CD73A: __vfprintf_internal (vfprintf-internal.c:1544)
+==395283==    by 0x48C21B2: printf (printf.c:33)
+==395283==    by 0x1092EA: main (main.c:31)
+==395283==  Address 0x4a790c2 is 2 bytes inside a block of size 21 free'd
+==395283==    at 0x484988F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x1093CA: session_destroy (session.c:33)
+==395283==    by 0x1092CF: main (main.c:29)
+==395283==  Block was alloc'd at
+==395283==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x109431: read_username (user_input.c:13)
+==395283==    by 0x10925D: main (main.c:12)
+==395283== 
+==395283== Invalid free() / delete / delete[] / realloc()
+==395283==    at 0x484988F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x1092F6: main (main.c:33)
+==395283==  Address 0x4a790c0 is 0 bytes inside a block of size 21 free'd
+==395283==    at 0x484988F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x1093CA: session_destroy (session.c:33)
+==395283==    by 0x1092CF: main (main.c:29)
+==395283==  Block was alloc'd at
+==395283==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==395283==    by 0x109431: read_username (user_input.c:13)
+==395283==    by 0x10925D: main (main.c:12)
+==395283== 
+Enter username: User: 12345678901234567890
+Access level: 1
+Goodbye 12345678901234567890
+==395283== 
+==395283== HEAP SUMMARY:
+==395283==     in use at exit: 0 bytes in 0 blocks
+==395283==   total heap usage: 4 allocs, 5 frees, 8,229 bytes allocated
+==395283== 
+==395283== All heap blocks were freed -- no leaks are possible
+==395283== 
+==395283== For lists of detected and suppressed errors, rerun with: -s
+==395283== ERROR SUMMARY: 42 errors from 5 contexts (suppressed: 0 from 0)

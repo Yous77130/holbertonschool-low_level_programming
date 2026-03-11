@@ -1,10 +1,3 @@
-# Ignore tout par défaut
-*
-
-# Mais autorise ces dossiers spécifiques
-!more_malloc_free/
-!more_malloc_free/secure-input-memory-lab/
-!RAPPORT_AUDIT.md*
-!secure-input-memory-lab/
-!RAPPORT_AUDIT.md
-
+instrumentation_lab
+main
+Betty

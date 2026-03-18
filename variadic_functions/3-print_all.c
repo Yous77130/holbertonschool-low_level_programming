@@ -3,7 +3,8 @@
 
 /**
  * print_all - prints anything based on format
- * @format: list of types (c, i, f, s)
+ * @format: list of types (c=char, i=int, f=float, s=string)
+ *
  * Return: void
  */
 void print_all(const char * const format, ...)

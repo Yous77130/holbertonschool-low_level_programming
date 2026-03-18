@@ -3,7 +3,8 @@
 
 /**
  * print_all - prints anything based on format
- * @format: list of types
+ * @format: list of types (c, i, f, s)
+ * Return: void
  */
 void print_all(const char * const format, ...)
 {
@@ -43,6 +44,8 @@ void print_all(const char * const format, ...)
 				s = "(nil)";
 			printf("%s%s", sep, s);
 			sep = ", ";
+			break;
+		default:
 			break;
 		}
 		i++;

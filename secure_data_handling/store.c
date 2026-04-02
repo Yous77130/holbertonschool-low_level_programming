@@ -96,7 +96,7 @@ session_t *store_get(store_t *st, const char *id)
  * store_delete - deletes a session by id
  * @st: the store
  * @id: the session id
- * @out: output pointer (unused, kept for API compatibility)
+ * @out: if not NULL, transfers ownership to caller (no destroy)
  * Return: 1 if deleted, 0 if not found
  */
 int store_delete(store_t *st, const char *id, session_t **out)
@@ -105,8 +105,6 @@ int store_delete(store_t *st, const char *id, session_t **out)
 
 	if (!st || !id)
 		return (0);
-
-	(void)out;
 
 	prev = NULL;
 	cur = st->head;
@@ -121,7 +119,13 @@ int store_delete(store_t *st, const char *id, session_t **out)
 			else
 				st->head = cur->next;
 
-			session_destroy(cur->sess);
+			if (out)
+				*out = cur->sess;
+			else
+				session_destroy(cur->sess);
+
+			cur->sess = NULL;
+			cur->next = NULL;
 			free(cur);
 			return (1);
 		}
@@ -147,6 +151,7 @@ void store_destroy(store_t *st)
 	{
 		next = cur->next;
 		session_destroy(cur->sess);
+		cur->sess = NULL;
 		free(cur);
 		cur = next;
 	}
